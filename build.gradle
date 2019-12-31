@@ -1,0 +1,59 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.2.RELEASE'
+    }
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+
+bootJar {
+    baseName = 'gtcloud-tool-shp2db'
+    version =  '0.1.0'
+}
+
+ext {
+    geoToolsVersion = '22.0'
+    okHttpVersion = '3.11.0'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation "com.squareup.okhttp3:okhttp:${okHttpVersion}"
+    runtime 'com.h2database:h2'
+    implementation "org.geotools:gt-shapefile:${geoToolsVersion}"
+    implementation "org.geotools:gt-epsg-extension:${geoToolsVersion}"
+    implementation "org.geotools:gt-main:${geoToolsVersion}"
+    implementation "org.geotools:gt-referencing:${geoToolsVersion}"
+    implementation "org.geotools:gt-epsg-hsql:${geoToolsVersion}"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "gbk"
+}
+
+repositories {
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+        url 'http://download.java.net/maven/2'
+    }
+    maven {
+        url 'http://download.osgeo.org/webdav/geotools/'
+    }
+    maven {
+        url 'http://repo.boundlessgeo.com/main'
+    }
+}
