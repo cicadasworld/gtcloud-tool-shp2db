@@ -1,15 +1,14 @@
-package gtcloud.writer;
+package gtcloud.yqbjgh.writer;
 
 import java.util.List;
 
+import gtcloud.yqbjgh.domain.CampCoordinate;
+import gtcloud.yqbjgh.helper.HttpClientHelper;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import gtcloud.domain.CampCoordinate;
-import gtcloud.helper.HttpClientHelper;
 
 public class CampCoordinateItemWriter implements ItemWriter<CampCoordinate> {
 

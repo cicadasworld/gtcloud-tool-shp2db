@@ -1,4 +1,4 @@
-package gtcloud.config;
+package gtcloud.yqbjgh.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

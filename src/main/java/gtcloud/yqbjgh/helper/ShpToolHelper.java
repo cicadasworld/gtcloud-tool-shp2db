@@ -1,23 +1,21 @@
-package gtcloud.helper;
+package gtcloud.yqbjgh.helper;
 
-import java.io.File;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
+import gtcloud.yqbjgh.domain.CampCoordinate;
 import org.geotools.data.shapefile.ShapefileDataStore;
 import org.geotools.data.simple.SimpleFeatureIterator;
 import org.geotools.data.simple.SimpleFeatureSource;
 import org.geotools.geometry.jts.JTS;
-import org.geotools.geometry.jts.JTSFactoryFinder;
 import org.geotools.referencing.CRS;
 import org.locationtech.jts.geom.*;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 import org.opengis.referencing.operation.MathTransform;
 
-import gtcloud.domain.CampCoordinate;
+import java.io.File;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class ShpToolHelper {
 
@@ -73,16 +71,27 @@ public class ShpToolHelper {
         return target;
     }
 
-    public static void test() {
-        GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory(null);
-        Coordinate coord = new Coordinate(1, 1);
-        Point point = geometryFactory.createPoint(coord);
+    public static void checkIfPointIsInPolygon() {
+        GeometryFactory geometryFactory = new GeometryFactory();
 
         Coordinate[] coordinates = new Coordinate[] {
-                new Coordinate(1, 1),
-                new Coordinate(2, 2)
+                new Coordinate(9.137248, 48.790411),
+                new Coordinate(9.137248, 48.790263),
+                new Coordinate(9.13695, 48.790263),
+                new Coordinate(9.137248, 48.790411)
         };
         Polygon polygon = geometryFactory.createPolygon(coordinates);
-        Point centroid = polygon.getCentroid();
+
+        if (true) {
+            Point point = geometryFactory.createPoint(new Coordinate(9.13710, 48.790360));
+            boolean pointIsInPolygon = polygon.contains(point);
+            System.out.println(pointIsInPolygon);
+        }
+
+        if (true) {
+            Point point = geometryFactory.createPoint(new Coordinate(9.137164, 48.790309));
+            boolean pointIsInPolygon = polygon.contains(point);
+            System.out.println(pointIsInPolygon);
+        }
     }
 }

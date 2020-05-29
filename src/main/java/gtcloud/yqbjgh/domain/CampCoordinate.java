@@ -1,4 +1,4 @@
-package gtcloud.domain;
+package gtcloud.yqbjgh.domain;
 
 public class CampCoordinate {
 

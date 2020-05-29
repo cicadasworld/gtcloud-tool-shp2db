@@ -1,11 +1,10 @@
-package gtcloud.reader;
+package gtcloud.yqbjgh.reader;
 
 import java.util.Iterator;
 import java.util.List;
 
+import gtcloud.yqbjgh.domain.CampCoordinate;
 import org.springframework.batch.item.ItemReader;
-
-import gtcloud.domain.CampCoordinate;
 
 public class CampCoordinateItemReader implements ItemReader<CampCoordinate> {
 
