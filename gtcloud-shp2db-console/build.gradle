@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+group = 'gtcloud-shp2db-console'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'gtcloud.yqbjgh.console.ShpToolMain'
+    }
+    baseName 'shp2db'
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>console</headerType>
+  <jar>shp2db.jar</jar>
+  <outfile>shp2db.exe</outfile>
+  <errTitle>shp2db</errTitle>
+  <chdir>.</chdir>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <jre>
+    <path>jre</path>
+    <minVersion>1.8.0</minVersion>
+  </jre>
+</launch4jConfig>

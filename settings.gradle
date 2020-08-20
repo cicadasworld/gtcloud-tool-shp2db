@@ -1,1 +1,3 @@
+include 'gtcloud-shp2db-core'
+include 'gtcloud-shp2db-console'
 rootProject.name = 'gtcloud-tool-shp2db'
