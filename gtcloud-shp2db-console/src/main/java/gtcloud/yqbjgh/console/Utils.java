@@ -1,7 +1,6 @@
 package gtcloud.yqbjgh.console;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
@@ -14,12 +13,13 @@ public class Utils {
 
     public static void exec(List<String> commandArray) {
         ProcessBuilder processBuilder = new ProcessBuilder();
+        BufferedReader reader = null;
         try {
             Process process = processBuilder.command(commandArray)
                 .redirectErrorStream(true)
                 .start();
             String encoding = System.getProperty("sun.jnu.encoding");
-            BufferedReader reader = new BufferedReader(
+            reader = new BufferedReader(
                 new InputStreamReader(process.getInputStream(), encoding));
             String line;
             while ((line = reader.readLine()) != null) {
@@ -32,6 +32,14 @@ public class Utils {
             reader.close();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
