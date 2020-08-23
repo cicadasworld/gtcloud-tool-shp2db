@@ -24,7 +24,7 @@ public class ShpToolMain {
     }
 
     private static void printUsage() {
-        System.out.format("用法如下:%n");
+        System.out.println("用法如下:");
         System.out.println("选项包括:");
         System.out.println("    --mapServerIp=地图服务IP地址, 如10.16.50.10");
         System.out.println("    --filePath=shp文件所在目录名, 如D:\\demo");
